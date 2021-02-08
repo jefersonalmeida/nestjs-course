@@ -20,12 +20,7 @@ import { Public } from '../common/decorator/public.decorator';
 
 @Controller('coffees')
 export class CoffeeController {
-  constructor(
-    private readonly coffeeService: CoffeeService,
-    @Inject(REQUEST) private readonly request: Request,
-  ) {
-    console.log('CoffeeController created');
-  }
+  constructor(private readonly coffeeService: CoffeeService) {}
 
   @Public()
   @Get()
