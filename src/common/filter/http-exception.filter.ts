@@ -34,7 +34,7 @@ export class HttpExceptionFilter<T extends HttpException>
     const BAD_REQUEST = 'Ocorreu um erro ao validar algum registro.';
     const UNAUTHORIZED = 'Ocorreu um erro ao buscar o usuário autenticado.';
     const FORBIDDEN = 'Acesso negado.';
-    const TIMEOUT = 'Tempo limite para atender a solicitação foi alcançado.';
+    const TIMEOUT = 'Tempo esgotado.';
     const CONFLICT = 'Ocorreu um conflito interno no sistema';
 
     const ctx = host.switchToHttp();
@@ -72,6 +72,7 @@ export class HttpExceptionFilter<T extends HttpException>
         break;
       case exception instanceof RequestTimeoutException:
         title = TIMEOUT;
+        message = 'Tempo limite para atender a solicitação foi alcançado.';
         break;
       case exception instanceof ConflictException:
         title = CONFLICT;
