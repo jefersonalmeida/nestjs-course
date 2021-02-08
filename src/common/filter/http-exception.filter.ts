@@ -33,7 +33,7 @@ export class HttpExceptionFilter<T extends HttpException>
     const RESOURCE_NOT_FOUND = 'Ocorreu um erro ao procurar algum registro.';
     const BAD_REQUEST = 'Ocorreu um erro ao validar algum registro.';
     const UNAUTHORIZED = 'Ocorreu um erro ao buscar o usuário autenticado.';
-    const FORBIDDEN = 'Você não está autorizado para acessar este recurso.';
+    const FORBIDDEN = 'Acesso negado.';
     const TIMEOUT = 'Tempo limite para atender a solicitação foi alcançado.';
     const CONFLICT = 'Ocorreu um conflito interno no sistema';
 
@@ -68,6 +68,7 @@ export class HttpExceptionFilter<T extends HttpException>
         break;
       case exception instanceof ForbiddenException:
         title = FORBIDDEN;
+        message = 'Você não está autorizado para acessar este recurso.';
         break;
       case exception instanceof RequestTimeoutException:
         title = TIMEOUT;
