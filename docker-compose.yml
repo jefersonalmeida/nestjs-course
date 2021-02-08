@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+    container_name: iluvcoffee-db
+    restart: always
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_PASSWORD: pass123
+    networks:
+      - host
+    volumes:
+      - .docker/postgres/data:/var/lib/postgresql/data
+
+networks:
+  host:
