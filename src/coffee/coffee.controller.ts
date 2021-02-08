@@ -22,11 +22,7 @@ export class CoffeeController {
 
   @Public()
   @Get()
-  async findAll(
-    @Protocol('https') protocol: string,
-    @Query() paginationQuery: PaginationQueryDto,
-  ) {
-    console.log(protocol);
+  async findAll(@Query() paginationQuery: PaginationQueryDto) {
     return this.coffeeService.findAll(paginationQuery);
   }
 
