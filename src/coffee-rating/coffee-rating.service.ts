@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { CoffeeService } from 'src/coffee/coffee.service';
+import { CoffeeService } from '../coffee/coffee.service';
 
 @Injectable()
 export class CoffeeRatingService {

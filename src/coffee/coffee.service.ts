@@ -4,7 +4,7 @@ import { Coffee } from './entity/coffee.entity';
 import { Connection, Repository } from 'typeorm';
 import { Flavor } from './entity/flavor.entity';
 import { PaginationQueryDto } from 'src/common/dto/pagination-query.dto';
-import { Event } from 'src/event/entity/event.entity';
+import { Event } from '../event/entity/event.entity';
 import { CreateCoffeeDto } from './dto/create-coffee.dto';
 import { UpdateCoffeeDto } from './dto/update-coffee.dto';
 
@@ -18,7 +18,7 @@ export class CoffeeService {
     private readonly connection: Connection,
   ) {}
 
-  findAll(paginationQuery: PaginationQueryDto) {
+  async findAll(paginationQuery: PaginationQueryDto) {
     const { limit, offset } = paginationQuery;
 
     return this.coffeeRepository.find({

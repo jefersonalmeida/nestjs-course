@@ -15,6 +15,7 @@ import { ParseIntPipe } from '../common/pipe/parse-int.pipe';
 import { CreateCoffeeDto } from './dto/create-coffee.dto';
 import { UpdateCoffeeDto } from './dto/update-coffee.dto';
 import { ApiTags } from '@nestjs/swagger';
+import { Coffee } from './entity/coffee.entity';
 
 @ApiTags('coffees')
 @Controller('coffees')
@@ -23,7 +24,7 @@ export class CoffeeController {
 
   @Public()
   @Get()
-  findAll(@Query() paginationQuery: PaginationQueryDto) {
+  findAll(@Query() paginationQuery: PaginationQueryDto): Promise<Coffee[]> {
     return this.coffeeService.findAll(paginationQuery);
   }
 
