@@ -19,10 +19,10 @@ async function bootstrap() {
     }),
   );
   app.useGlobalFilters(new HttpExceptionFilter());
-  app.useGlobalInterceptors(
-    new WrapResponseInterceptor(),
+  /* app.useGlobalInterceptors(
+    // new WrapResponseInterceptor(),
     new TimeoutInterceptor(),
-  );
+  ); */
 
   const options = new DocumentBuilder()
     .setTitle('Iluvecoffee')
